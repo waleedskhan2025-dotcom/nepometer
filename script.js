@@ -8,7 +8,7 @@ const quizData = [
             "Bachelor's degree",
             "Advanced degree (Master's, PhD, JD, MD)"
         ],
-        weights: [0, 3, 7, 10]
+        weights: [0, 2, 5, 7]
     },
     {
         question: "How did you get your first job or internship?",
@@ -18,7 +18,7 @@ const quizData = [
             "Family friend made an introduction",
             "Parent works at the company or in the industry"
         ],
-        weights: [0, 2, 7, 10]
+        weights: [0, 1, 5, 7]
     },
     {
         question: "What best describes your family's financial situation growing up?",
@@ -28,7 +28,7 @@ const quizData = [
             "Well-off, never worried about money",
             "Wealthy, had household staff or multiple properties"
         ],
-        weights: [0, 3, 7, 10]
+        weights: [0, 2, 5, 7]
     },
     {
         question: "Did you have unpaid internships during college?",
@@ -38,7 +38,7 @@ const quizData = [
             "Multiple unpaid internships",
             "Multiple unpaid internships in expensive cities (parents paid rent)"
         ],
-        weights: [0, 4, 7, 10]
+        weights: [0, 3, 5, 7]
     },
     {
         question: "How did you pay for college?",
@@ -48,7 +48,7 @@ const quizData = [
             "Parents paid for most or all of it",
             "Trust fund or parents paid in full, plus living expenses"
         ],
-        weights: [0, 3, 7, 10]
+        weights: [0, 2, 5, 7]
     },
     {
         question: "What kind of high school did you attend?",
@@ -58,7 +58,7 @@ const quizData = [
             "Private school or magnet school",
             "Elite private school (think $40k+ per year)"
         ],
-        weights: [0, 3, 7, 10]
+        weights: [0, 2, 5, 7]
     },
     {
         question: "Have your family connections helped your career?",
@@ -68,7 +68,7 @@ const quizData = [
             "Parents know people in my industry",
             "Parents are major players in my industry"
         ],
-        weights: [0, 2, 7, 10]
+        weights: [0, 1, 5, 7]
     },
     {
         question: "What was your living situation right after college?",
@@ -78,7 +78,7 @@ const quizData = [
             "Parents helped with rent in the city",
             "Lived rent-free in family-owned property"
         ],
-        weights: [0, 3, 6, 10]
+        weights: [0, 2, 4, 7]
     },
     {
         question: "Did you take a 'gap year' or travel extensively?",
@@ -88,7 +88,7 @@ const quizData = [
             "A few months of travel funded by family",
             "Year+ of travel, 'finding myself' on family's dime"
         ],
-        weights: [0, 2, 6, 10]
+        weights: [0, 1, 4, 7]
     },
     {
         question: "How would you describe your professional network?",
@@ -98,7 +98,57 @@ const quizData = [
             "Significantly boosted by family connections",
             "Inherited a powerful network from family"
         ],
-        weights: [0, 3, 7, 10]
+        weights: [0, 2, 5, 7]
+    },
+    {
+        question: "How often did you have to 'code-switch' or modify your behavior/speech for professional settings?",
+        answers: [
+            "Constantly, major effort",
+            "Regularly",
+            "Occasionally",
+            "Never thought about it"
+        ],
+        weights: [0, 2, 5, 7]
+    },
+    {
+        question: "Did your neighborhood have well-funded schools, low pollution, and access to healthy food?",
+        answers: [
+            "No to all",
+            "Mixed",
+            "Mostly yes",
+            "Yes to everything"
+        ],
+        weights: [0, 2, 5, 7]
+    },
+    {
+        question: "Has your name ever been a barrier? (callbacks, pronunciation, 'professionalism')",
+        answers: [
+            "Significant barrier",
+            "Moderate issue",
+            "Minor",
+            "Never an issue"
+        ],
+        weights: [0, 2, 5, 7]
+    },
+    {
+        question: "How often are you seen as an individual vs. representative of your entire race/ethnicity?",
+        answers: [
+            "Always representing",
+            "Often",
+            "Sometimes",
+            "I'm always seen as an individual"
+        ],
+        weights: [0, 2, 5, 7]
+    },
+    {
+        question: "In professional spaces, is your cultural background seen as 'sophisticated' or 'ethnic/exotic'?",
+        answers: [
+            "Exoticized/othered",
+            "Depends",
+            "Neutral",
+            "Seen as cultured/sophisticated"
+        ],
+        weights: [0, 2, 5, 7]
     }
 ];
 
@@ -187,7 +237,7 @@ function showResults() {
     questionsSection.classList.remove('active');
     resultsSection.classList.add('active');
 
-    const maxScore = 100; // 10 questions * 10 max points each
+    const maxScore = 105; // 15 questions * 7 max points each
     const percentage = Math.round((score / maxScore) * 100);
 
     let ranking = '';
