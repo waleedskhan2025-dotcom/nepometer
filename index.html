@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nepo Baby Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div id="quiz-container">
+            <h1>Nepo Baby Calculator</h1>
+
+            <div id="quiz-start" class="quiz-section active">
+                <h2>How much of a Nepo Baby are you?</h2>
+                <p>Answer honestly to find out how much privilege and family connections have shaped your journey.</p>
+                <button id="start-btn" class="btn">Take the Test</button>
+            </div>
+
+            <div id="quiz-questions" class="quiz-section">
+                <div id="question-container">
+                    <h2 id="question-text"></h2>
+                    <div id="answer-buttons" class="answer-grid"></div>
+                </div>
+
+                <div class="quiz-controls">
+                    <div id="question-counter"></div>
+                    <button id="next-btn" class="btn">Next Question</button>
+                </div>
+            </div>
+
+            <div id="quiz-results" class="quiz-section">
+                <h2>Your Results</h2>
+                <div id="score-container">
+                    <div id="score"></div>
+                </div>
+                <button id="restart-btn" class="btn">Retake Test</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
