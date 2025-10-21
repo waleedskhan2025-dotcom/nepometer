@@ -240,6 +240,7 @@
         let currentQuestionIndex = 0;
         let score = 0;
         let selectedAnswer = null;
+        let questionScores = []; // Track score for each question
         const maxScore = 105; // 15 questions * 7 points max
 
         const startSection = document.getElementById('quiz-start');
@@ -270,6 +271,7 @@
             currentQuestionIndex = 0;
             score = 0;
             selectedAnswer = null;
+            questionScores = []; // Reset question scores
 
             startSection.classList.remove('active');
             questionsSection.classList.add('active');
@@ -305,10 +307,19 @@
 
             allButtons.forEach(btn => btn.classList.remove('selected'));
 
+            // If this question was already answered, subtract the old score
+            if (questionScores[currentQuestionIndex] !== undefined) {
+                score -= questionScores[currentQuestionIndex];
+            }
+
+            // Store the new score for this question
+            questionScores[currentQuestionIndex] = currentQuestion.weights[answerIndex];
+            
+            // Add the new score
+            score += questionScores[currentQuestionIndex];
             selectedAnswer = answerIndex;
             buttonElement.classList.add('selected');
 
-            score += currentQuestion.weights[answerIndex];
             updateThermometer();
 
             nextBtn.disabled = false;
@@ -366,6 +377,7 @@
             currentQuestionIndex = 0;
             score = 0;
             selectedAnswer = null;
+            questionScores = []; // Reset question scores
             updateThermometer();
         }
     </script>
