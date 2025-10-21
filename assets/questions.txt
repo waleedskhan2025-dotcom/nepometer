@@ -1,0 +1,153 @@
+// Nepo baby quiz questions with weighted scoring
+const quizData = [
+    {
+        question: "What is your parents' highest level of education?",
+        answers: [
+            "High school or less",
+            "Some college or associate degree",
+            "Bachelor's degree",
+            "Advanced degree (Master's, PhD, JD, MD)"
+        ],
+        weights: [0, 2, 5, 7]
+    },
+    {
+        question: "How did you get your first job or internship?",
+        answers: [
+            "Applied online with no connections",
+            "Through a school career fair",
+            "Family friend made an introduction",
+            "Parent works at the company or in the industry"
+        ],
+        weights: [0, 1, 5, 7]
+    },
+    {
+        question: "What best describes your family's financial situation growing up?",
+        answers: [
+            "Struggled to make ends meet",
+            "Comfortable, but careful with money",
+            "Well-off, never worried about money",
+            "Wealthy, had household staff or multiple properties"
+        ],
+        weights: [0, 2, 5, 7]
+    },
+    {
+        question: "Did you have unpaid internships during college?",
+        answers: [
+            "No, I had to work paid jobs",
+            "One unpaid internship",
+            "Multiple unpaid internships",
+            "Multiple unpaid internships in expensive cities (parents paid rent)"
+        ],
+        weights: [0, 3, 5, 7]
+    },
+    {
+        question: "How did you pay for college?",
+        answers: [
+            "Full scholarships, grants, or worked my way through",
+            "Mix of loans, work, and some family support",
+            "Parents paid for most or all of it",
+            "Trust fund or parents paid in full, plus living expenses"
+        ],
+        weights: [0, 2, 5, 7]
+    },
+    {
+        question: "What kind of high school did you attend?",
+        answers: [
+            "Public school in an underfunded district",
+            "Good public school",
+            "Private school or magnet school",
+            "Elite private school (think $40k+ per year)"
+        ],
+        weights: [0, 2, 5, 7]
+    },
+    {
+        question: "Have your family connections helped your career?",
+        answers: [
+            "No connections in my field",
+            "Some distant connections, rarely helpful",
+            "Parents know people in my industry",
+            "Parents are major players in my industry"
+        ],
+        weights: [0, 1, 5, 7]
+    },
+    {
+        question: "What was your living situation right after college?",
+        answers: [
+            "Roommates in a small apartment I paid for",
+            "Lived at home briefly to save money",
+            "Parents helped with rent in the city",
+            "Lived rent-free in family-owned property"
+        ],
+        weights: [0, 2, 4, 7]
+    },
+    {
+        question: "Did you take a 'gap year' or travel extensively?",
+        answers: [
+            "No, I had to work immediately",
+            "Brief vacation after graduation",
+            "A few months of travel funded by family",
+            "Year+ of travel, 'finding myself' on family's dime"
+        ],
+        weights: [0, 1, 4, 7]
+    },
+    {
+        question: "How would you describe your professional network?",
+        answers: [
+            "Built entirely by myself from scratch",
+            "Mix of my connections and some family friends",
+            "Significantly boosted by family connections",
+            "Inherited a powerful network from family"
+        ],
+        weights: [0, 2, 5, 7]
+    },
+    {
+        question: "How often did you have to 'code-switch' or modify your behavior/speech for professional settings?",
+        answers: [
+            "Constantly, major effort",
+            "Regularly",
+            "Occasionally",
+            "Never thought about it"
+        ],
+        weights: [0, 2, 5, 7]
+    },
+    {
+        question: "Did your neighborhood have well-funded schools, low pollution, and access to healthy food?",
+        answers: [
+            "No to all",
+            "Mixed",
+            "Mostly yes",
+            "Yes to everything"
+        ],
+        weights: [0, 2, 5, 7]
+    },
+    {
+        question: "Has your name ever been a barrier? (callbacks, pronunciation, 'professionalism')",
+        answers: [
+            "Significant barrier",
+            "Moderate issue",
+            "Minor",
+            "Never an issue"
+        ],
+        weights: [0, 2, 5, 7]
+    },
+    {
+        question: "How often are you seen as an individual vs. representative of your entire race/ethnicity?",
+        answers: [
+            "Always representing",
+            "Often",
+            "Sometimes",
+            "I'm always seen as an individual"
+        ],
+        weights: [0, 2, 5, 7]
+    },
+    {
+        question: "In professional spaces, is your cultural background seen as 'sophisticated' or 'ethnic/exotic'?",
+        answers: [
+            "Exoticized/othered",
+            "Depends",
+            "Neutral",
+            "Seen as cultured/sophisticated"
+        ],
+        weights: [0, 2, 5, 7]
+    }
+];
