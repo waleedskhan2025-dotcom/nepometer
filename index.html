@@ -53,25 +53,16 @@
 
     <script>
         const quizData = [
+            // SECTION 1: Early Life & Foundation
             {
-                question: "What is your parents' highest level of education?",
+                question: "Did your neighborhood have well-funded schools, low pollution, and access to healthy food?",
                 answers: [
-                    "High school or less",
-                    "Some college or associate degree",
-                    "Bachelor's degree",
-                    "Advanced degree (Master's, PhD, JD, MD)"
+                    "No to all",
+                    "Mixed",
+                    "Mostly yes",
+                    "Yes to everything"
                 ],
                 weights: [0, 2, 5, 7]
-            },
-            {
-                question: "How did you get your first job or internship?",
-                answers: [
-                    "Applied online with no connections",
-                    "Through a school career fair",
-                    "Family friend made an introduction",
-                    "Parent works at the company or in the industry"
-                ],
-                weights: [0, 1, 5, 7]
             },
             {
                 question: "What best describes your family's financial situation growing up?",
@@ -84,14 +75,26 @@
                 weights: [0, 2, 5, 7]
             },
             {
-                question: "Did you have unpaid internships during college?",
+                question: "What is your parents' highest level of education?",
                 answers: [
-                    "No, I had to work paid jobs",
-                    "One unpaid internship",
-                    "Multiple unpaid internships",
-                    "Multiple unpaid internships in expensive cities (parents paid rent)"
+                    "High school or less",
+                    "Some college or associate degree",
+                    "Bachelor's degree",
+                    "Advanced degree (Master's, PhD, JD, MD)"
                 ],
-                weights: [0, 3, 5, 7]
+                weights: [0, 2, 5, 7]
+            },
+            
+            // SECTION 2: Education Journey
+            {
+                question: "What kind of high school did you attend?",
+                answers: [
+                    "Public school in an underfunded district",
+                    "Good public school",
+                    "Private school or magnet school",
+                    "Elite private school (think $40k+ per year)"
+                ],
+                weights: [0, 2, 5, 7]
             },
             {
                 question: "How did you pay for college?",
@@ -103,15 +106,49 @@
                 ],
                 weights: [0, 2, 5, 7]
             },
+            
+            // SECTION 3: College Experience
             {
-                question: "What kind of high school did you attend?",
+                question: "Did you have unpaid internships during college?",
                 answers: [
-                    "Public school in an underfunded district",
-                    "Good public school",
-                    "Private school or magnet school",
-                    "Elite private school (think $40k+ per year)"
+                    "No, I had to work paid jobs",
+                    "One unpaid internship",
+                    "Multiple unpaid internships",
+                    "Multiple unpaid internships in expensive cities (parents paid rent)"
                 ],
-                weights: [0, 2, 5, 7]
+                weights: [0, 3, 5, 7]
+            },
+            {
+                question: "Did you take a 'gap year' or travel extensively?",
+                answers: [
+                    "No, I had to work immediately",
+                    "Brief vacation after graduation",
+                    "A few months of travel funded by family",
+                    "Year+ of travel, 'finding myself' on family's dime"
+                ],
+                weights: [0, 1, 4, 7]
+            },
+            
+            // SECTION 4: Career Launch
+            {
+                question: "What was your living situation right after college?",
+                answers: [
+                    "Roommates in a small apartment I paid for",
+                    "Lived at home briefly to save money",
+                    "Parents helped with rent in the city",
+                    "Lived rent-free in family-owned property"
+                ],
+                weights: [0, 2, 4, 7]
+            },
+            {
+                question: "How did you get your first job or internship?",
+                answers: [
+                    "Applied online with no connections",
+                    "Through a school career fair",
+                    "Family friend made an introduction",
+                    "Parent works at the company or in the industry"
+                ],
+                weights: [0, 1, 5, 7]
             },
             {
                 question: "Have your family connections helped your career?",
@@ -124,26 +161,6 @@
                 weights: [0, 1, 5, 7]
             },
             {
-                question: "What was your living situation right after college?",
-                answers: [
-                    "Roommates in a small apartment I paid for",
-                    "Lived at home briefly to save money",
-                    "Parents helped with rent in the city",
-                    "Lived rent-free in family-owned property"
-                ],
-                weights: [0, 2, 4, 7]
-            },
-            {
-                question: "Did you take a 'gap year' or travel extensively?",
-                answers: [
-                    "No, I had to work immediately",
-                    "Brief vacation after graduation",
-                    "A few months of travel funded by family",
-                    "Year+ of travel, 'finding myself' on family's dime"
-                ],
-                weights: [0, 1, 4, 7]
-            },
-            {
                 question: "How would you describe your professional network?",
                 answers: [
                     "Built entirely by myself from scratch",
@@ -153,6 +170,8 @@
                 ],
                 weights: [0, 2, 5, 7]
             },
+            
+            // SECTION 5: Identity & Cultural Factors
             {
                 question: "How often did you have to 'code-switch' or modify your behavior/speech for professional settings?",
                 answers: [
@@ -160,16 +179,6 @@
                     "Regularly",
                     "Occasionally",
                     "Never thought about it"
-                ],
-                weights: [0, 2, 5, 7]
-            },
-            {
-                question: "Did your neighborhood have well-funded schools, low pollution, and access to healthy food?",
-                answers: [
-                    "No to all",
-                    "Mixed",
-                    "Mostly yes",
-                    "Yes to everything"
                 ],
                 weights: [0, 2, 5, 7]
             },
