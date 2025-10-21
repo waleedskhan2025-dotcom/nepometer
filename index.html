@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Mobile Score Badge -->
+    <div class="mobile-score-badge" id="mobile-score-badge">
+        <div class="mobile-score-value" id="mobile-score-value">0%</div>
+        <div class="mobile-score-label">Score</div>
+    </div>
+
     <!-- Floating particles -->
     <script>
         for(let i = 0; i < 30; i++) {
@@ -256,11 +262,14 @@
         const thermometerContainer = document.getElementById('thermostat-container');
         const thermometerFill = document.getElementById('thermostat-fill');
         const thermometerScore = document.getElementById('thermostat-score');
+        const mobileBadge = document.getElementById('mobile-score-badge');
+        const mobileScoreValue = document.getElementById('mobile-score-value');
 
         function updateThermometer() {
             const percentage = Math.round((score / maxScore) * 100);
             thermometerFill.style.height = percentage + '%';
             thermometerScore.textContent = percentage + '%';
+            mobileScoreValue.textContent = percentage + '%';
         }
 
         startBtn.addEventListener('click', startQuiz);
@@ -276,6 +285,7 @@
             startSection.classList.remove('active');
             questionsSection.classList.add('active');
             thermometerContainer.classList.add('active');
+            mobileBadge.classList.add('active');
             
             updateThermometer();
             showQuestion();
@@ -339,6 +349,7 @@
             questionsSection.classList.remove('active');
             resultsSection.classList.add('active');
             thermometerContainer.classList.remove('active');
+            mobileBadge.classList.remove('active');
 
             const percentage = Math.round((score / maxScore) * 100);
 
@@ -373,6 +384,7 @@
             resultsSection.classList.remove('active');
             startSection.classList.add('active');
             thermometerContainer.classList.remove('active');
+            mobileBadge.classList.remove('active');
 
             currentQuestionIndex = 0;
             score = 0;
