@@ -4,6 +4,8 @@
 
 An interactive web quiz that helps users assess how much privilege and family connections have shaped their journey in life and career.
 
+https://waleedskhan2025-dotcom.github.io/nepometer/
+
 ## Description
 
 The Nepo Baby Calculator is a fun, thought-provoking quiz that evaluates various aspects of privilege including:
@@ -56,7 +58,7 @@ Or simply double-click the `index.html` file.
 1. Click "Take the Test" to begin
 2. Read each question carefully and select the answer that best applies to you
 3. Click "Next Question" to proceed
-4. After completing all 10 questions, view your results
+4. After completing all 15 questions, view your results
 5. Click "Retake Test" to start over
 
 ## Score Rankings
