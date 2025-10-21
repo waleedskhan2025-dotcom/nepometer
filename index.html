@@ -20,7 +20,8 @@
     </script>
 
     <div class="container">
-        <div id="quiz-container">
+        <div class="quiz-wrapper">
+            <div id="quiz-container">
             <h1>Nepo Baby Calculator</h1>
 
             <div id="quiz-start" class="quiz-section active">
@@ -49,7 +50,29 @@
                 <button id="restart-btn" class="btn">Retake Test</button>
             </div>
         </div>
+        
+        <!-- Thermostat Meter -->
+        <div class="thermostat-container" id="thermostat-container">
+            <div class="thermostat">
+                <div class="thermostat-markers">
+                    <span class="marker">100%</span>
+                    <span class="marker">75%</span>
+                    <span class="marker">50%</span>
+                    <span class="marker">25%</span>
+                    <span class="marker">0%</span>
+                </div>
+                <div class="thermostat-tube">
+                    <div class="thermostat-fill" id="thermostat-fill"></div>
+                </div>
+                <div class="thermostat-bulb"></div>
+            </div>
+            <div class="thermostat-label">
+                <div class="thermostat-score" id="thermostat-score">0%</div>
+                <div>Nepo Score</div>
+            </div>
+        </div>
     </div>
+</div>
 
     <script>
         const quizData = [
@@ -217,6 +240,7 @@
         let currentQuestionIndex = 0;
         let score = 0;
         let selectedAnswer = null;
+        const maxScore = 105; // 15 questions * 7 points max
 
         const startSection = document.getElementById('quiz-start');
         const questionsSection = document.getElementById('quiz-questions');
@@ -228,6 +252,15 @@
         const answerButtons = document.getElementById('answer-buttons');
         const questionCounter = document.getElementById('question-counter');
         const scoreDisplay = document.getElementById('score');
+        const thermometerContainer = document.getElementById('thermostat-container');
+        const thermometerFill = document.getElementById('thermostat-fill');
+        const thermometerScore = document.getElementById('thermostat-score');
+
+        function updateThermometer() {
+            const percentage = Math.round((score / maxScore) * 100);
+            thermometerFill.style.height = percentage + '%';
+            thermometerScore.textContent = percentage + '%';
+        }
 
         startBtn.addEventListener('click', startQuiz);
         nextBtn.addEventListener('click', nextQuestion);
@@ -240,7 +273,9 @@
 
             startSection.classList.remove('active');
             questionsSection.classList.add('active');
-
+            thermometerContainer.classList.add('active');
+            
+            updateThermometer();
             showQuestion();
         }
 
@@ -274,6 +309,7 @@
             buttonElement.classList.add('selected');
 
             score += currentQuestion.weights[answerIndex];
+            updateThermometer();
 
             nextBtn.disabled = false;
         }
@@ -291,8 +327,8 @@
         function showResults() {
             questionsSection.classList.remove('active');
             resultsSection.classList.add('active');
+            thermometerContainer.classList.remove('active');
 
-            const maxScore = 105;
             const percentage = Math.round((score / maxScore) * 100);
 
             let ranking = '';
@@ -325,10 +361,12 @@
         function restartQuiz() {
             resultsSection.classList.remove('active');
             startSection.classList.add('active');
+            thermometerContainer.classList.remove('active');
 
             currentQuestionIndex = 0;
             score = 0;
             selectedAnswer = null;
+            updateThermometer();
         }
     </script>
 </body>
