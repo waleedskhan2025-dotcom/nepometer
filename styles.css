@@ -52,14 +52,16 @@ body {
 
 .container {
     width: 100%;
-    max-width: 750px;
+    max-width: 900px;
     position: relative;
     z-index: 1;
+    overflow: visible;
 }
 
 .quiz-wrapper {
     position: relative;
     width: 100%;
+    max-width: 750px;
     overflow: visible;
 }
 
