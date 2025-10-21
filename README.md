@@ -1,5 +1,7 @@
 # Nepo Baby Calculator
 
+[![Deploy to GitHub Pages](https://github.com/<your-username>/nepometer/actions/workflows/deploy.yml/badge.svg)](https://github.com/<your-username>/nepometer/actions/workflows/deploy.yml)
+
 An interactive web quiz that helps users assess how much privilege and family connections have shaped their journey in life and career.
 
 ## Description
@@ -80,6 +82,41 @@ nepometer/
 - HTML5
 - CSS3
 - Vanilla JavaScript (ES6+)
+
+## Deployment
+
+This project is configured with GitHub Actions for automatic deployment to GitHub Pages.
+
+### Setting Up GitHub Pages
+
+1. Push your code to GitHub
+2. Go to your repository Settings → Pages
+3. Under "Build and deployment", select:
+   - **Source**: GitHub Actions
+4. Push to the `main` branch, and your site will automatically deploy!
+
+### CI/CD Pipeline
+
+The project includes two automated workflows:
+
+**Deploy Workflow** (`.github/workflows/deploy.yml`):
+- ✅ Runs on every push to main/master
+- ✅ Validates HTML and JavaScript
+- ✅ Automatically deploys to GitHub Pages
+- ✅ Provides deployment URL
+
+**PR Checks** (`.github/workflows/pr-checks.yml`):
+- ✅ Runs on pull requests
+- ✅ Validates code quality
+- ✅ Checks file structure
+- ✅ Warns about console.log statements
+
+### View Your Site
+
+After deployment, your site will be available at:
+```
+https://<your-username>.github.io/nepometer/
+```
 
 ## Contributing
 
