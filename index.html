@@ -319,7 +319,8 @@
         let score = 0;
         let selectedAnswer = null;
         let questionScores = []; // Track score for each question
-        const maxScore = 154; // 22 questions * 7 points max
+        // Calculate max score dynamically based on question weights
+        const maxScore = quizData.reduce((total, question) => total + Math.max(...question.weights), 0);
 
         const startSection = document.getElementById('quiz-start');
         const questionsSection = document.getElementById('quiz-questions');
