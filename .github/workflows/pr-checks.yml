@@ -24,7 +24,7 @@ jobs:
       - name: Validate HTML
         run: |
           echo "🔍 Validating HTML..."
-          npx html-validator-cli --quiet index.html
+          npx html-validator-cli --file=index.html --quiet
       
       - name: Check JavaScript syntax
         run: |
