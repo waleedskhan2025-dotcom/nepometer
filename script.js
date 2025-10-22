@@ -149,6 +149,76 @@ const quizData = [
             "Seen as cultured/sophisticated"
         ],
         weights: [0, 2, 5, 7]
+    },
+    {
+        question: "How much does your gender identity match legal documentation?",
+        answers: [
+            "Significant mismatch, costly/difficult to change",
+            "Some documents don't match",
+            "Mostly aligned",
+            "Always matched, never questioned"
+        ],
+        weights: [0, 2, 5, 7]
+    },
+    {
+        question: "How comfortable are you discussing your personal life/partner at work?",
+        answers: [
+            "Must actively hide it for safety/acceptance",
+            "Careful about who knows",
+            "Somewhat open",
+            "Completely open, never a concern"
+        ],
+        weights: [0, 2, 5, 7]
+    },
+    {
+        question: "Has your sexual orientation affected your career opportunities or advancement?",
+        answers: [
+            "Significant negative impact",
+            "Some concerns or missed opportunities",
+            "Minor impact",
+            "Never affected me / or gave me advantage"
+        ],
+        weights: [0, 2, 5, 7]
+    },
+    {
+        question: "Growing up, how was your sexual orientation/gender identity received by your family?",
+        answers: [
+            "Rejection, lost support/housing",
+            "Conditional acceptance, tension",
+            "Accepted over time",
+            "Fully supported / never questioned"
+        ],
+        weights: [0, 2, 5, 7]
+    },
+    {
+        question: "How often do you consider personal safety based on your gender/sexuality?",
+        answers: [
+            "Daily concern, affects major life decisions",
+            "Regular awareness and precautions",
+            "Occasional thought",
+            "Rarely or never crosses my mind"
+        ],
+        weights: [0, 2, 5, 7]
+    },
+    {
+        question: "Has accessing healthcare (including reproductive/gender-affirming care) been difficult based on your gender/sexuality?",
+        answers: [
+            "Extremely difficult, significant barriers",
+            "Challenging, insurance/access issues",
+            "Some hurdles",
+            "Straightforward, no barriers"
+        ],
+        weights: [0, 2, 5, 7]
+    },
+    {
+        question: "Do laws/policies where you live protect or target your gender identity/sexual orientation?",
+        answers: [
+            "Actively targeted or unprotected",
+            "Limited protections",
+            "Some protections",
+            "Fully protected, never questioned"
+        ],
+        weights: [0, 2, 5, 7]
     }
 ];
 
@@ -237,7 +307,7 @@ function showResults() {
     questionsSection.classList.remove('active');
     resultsSection.classList.add('active');
 
-    const maxScore = 105; // 15 questions * 7 max points each
+    const maxScore = 154; // 22 questions * 7 max points each
     const percentage = Math.round((score / maxScore) * 100);
 
     let ranking = '';

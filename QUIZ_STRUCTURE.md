@@ -42,7 +42,19 @@ The quiz questions have been reorganized into a chronological and thematic narra
 14. Individual vs. representative perception
 15. Cultural background perception (sophisticated vs. exotic)
 
-*Why this order?* Saved for last to examine how identity intersects with class privilege, adding nuance to the overall assessment.
+*Why this order?* Examines how racial/ethnic identity intersects with class privilege, adding nuance to the overall assessment.
+
+### Section 6: Gender, Sexuality & Identity (Questions 16-22)
+**Gender identity, sexual orientation, and systemic protections**
+16. Gender identity and legal documentation alignment
+17. Comfort discussing personal life/partner at work
+18. Sexual orientation's impact on career
+19. Family reception of sexual orientation/gender identity
+20. Personal safety considerations based on gender/sexuality
+21. Healthcare access (reproductive/gender-affirming care)
+22. Legal protections or targeting based on identity
+
+*Why this order?* Explores how gender and sexuality intersect with other privileges, examining both institutional barriers and personal safety concerns. These questions round out the intersectional analysis by including often-overlooked dimensions of systemic advantage and disadvantage.
 
 ---
 
@@ -73,9 +85,9 @@ The quiz questions have been reorganized into a chronological and thematic narra
 ## 📈 Question Flow Map
 
 ```
-Childhood → Education → College → Career → Identity
-   ↓           ↓          ↓         ↓         ↓
-Foundation  Access    Leverage  Launch   Intersect
+Childhood → Education → College → Career → Race/Ethnicity → Gender/Sexuality
+   ↓           ↓          ↓         ↓            ↓                ↓
+Foundation  Access    Leverage  Launch   Cultural Identity  Gender/Sexual Identity
 ```
 
-This structure ensures the quiz is both thoughtful and engaging!
+This structure ensures the quiz comprehensively examines multiple dimensions of privilege and their intersections!
