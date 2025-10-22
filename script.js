@@ -1,24 +1,14 @@
-// Nepo baby quiz questions with weighted scoring
 const quizData = [
+    // SECTION 1: Early Life & Foundation
     {
-        question: "What is your parents' highest level of education?",
+        question: "Did your neighborhood have well-funded schools, low pollution, and access to healthy food?",
         answers: [
-            "High school or less",
-            "Some college or associate degree",
-            "Bachelor's degree",
-            "Advanced degree (Master's, PhD, JD, MD)"
+            "No to all",
+            "Mixed",
+            "Mostly yes",
+            "Yes to everything"
         ],
-        weights: [0, 2, 5, 7]
-    },
-    {
-        question: "How did you get your first job or internship?",
-        answers: [
-            "Applied online with no connections",
-            "Through a school career fair",
-            "Family friend made an introduction",
-            "Parent works at the company or in the industry"
-        ],
-        weights: [0, 1, 5, 7]
+        weights: [0, 3, 6, 10]
     },
     {
         question: "What best describes your family's financial situation growing up?",
@@ -28,17 +18,29 @@ const quizData = [
             "Well-off, never worried about money",
             "Wealthy, had household staff or multiple properties"
         ],
-        weights: [0, 2, 5, 7]
+        weights: [0, 4, 9, 14]
     },
     {
-        question: "Did you have unpaid internships during college?",
+        question: "What is your parents' highest level of education?",
         answers: [
-            "No, I had to work paid jobs",
-            "One unpaid internship",
-            "Multiple unpaid internships",
-            "Multiple unpaid internships in expensive cities (parents paid rent)"
+            "High school or less",
+            "Some college or associate degree",
+            "Bachelor's degree",
+            "Advanced degree (Master's, PhD, JD, MD)"
         ],
-        weights: [0, 3, 5, 7]
+        weights: [0, 3, 6, 10]
+    },
+
+    // SECTION 2: Education Journey
+    {
+        question: "What kind of high school did you attend?",
+        answers: [
+            "Public school in an underfunded district",
+            "Good public school",
+            "Private school or magnet school",
+            "Elite private school (think $40k+ per year)"
+        ],
+        weights: [0, 3, 6, 10]
     },
     {
         question: "How did you pay for college?",
@@ -48,37 +50,19 @@ const quizData = [
             "Parents paid for most or all of it",
             "Trust fund or parents paid in full, plus living expenses"
         ],
-        weights: [0, 2, 5, 7]
+        weights: [0, 4, 9, 14]
     },
+
+    // SECTION 3: College Experience
     {
-        question: "What kind of high school did you attend?",
+        question: "Did you have unpaid internships during college?",
         answers: [
-            "Public school in an underfunded district",
-            "Good public school",
-            "Private school or magnet school",
-            "Elite private school (think $40k+ per year)"
+            "No, I had to work paid jobs",
+            "One unpaid internship",
+            "Multiple unpaid internships",
+            "Multiple unpaid internships in expensive cities (parents paid rent)"
         ],
-        weights: [0, 2, 5, 7]
-    },
-    {
-        question: "Have your family connections helped your career?",
-        answers: [
-            "No connections in my field",
-            "Some distant connections, rarely helpful",
-            "Parents know people in my industry",
-            "Parents are major players in my industry"
-        ],
-        weights: [0, 1, 5, 7]
-    },
-    {
-        question: "What was your living situation right after college?",
-        answers: [
-            "Roommates in a small apartment I paid for",
-            "Lived at home briefly to save money",
-            "Parents helped with rent in the city",
-            "Lived rent-free in family-owned property"
-        ],
-        weights: [0, 2, 4, 7]
+        weights: [0, 3, 6, 10]
     },
     {
         question: "Did you take a 'gap year' or travel extensively?",
@@ -88,7 +72,39 @@ const quizData = [
             "A few months of travel funded by family",
             "Year+ of travel, 'finding myself' on family's dime"
         ],
-        weights: [0, 1, 4, 7]
+        weights: [0, 2, 4, 7]
+    },
+
+    // SECTION 4: Career Launch
+    {
+        question: "What was your living situation right after college?",
+        answers: [
+            "Roommates in a small apartment I paid for",
+            "Lived at home briefly to save money",
+            "Parents helped with rent in the city",
+            "Lived rent-free in family-owned property"
+        ],
+        weights: [0, 3, 6, 10]
+    },
+    {
+        question: "How did you get your first job or internship?",
+        answers: [
+            "Applied online with no connections",
+            "Through a school career fair",
+            "Family friend made an introduction",
+            "Parent works at the company or in the industry"
+        ],
+        weights: [0, 4, 9, 14]
+    },
+    {
+        question: "Have your family connections helped your career?",
+        answers: [
+            "No connections in my field",
+            "Some distant connections, rarely helpful",
+            "Parents know people in my industry",
+            "Parents are major players in my industry"
+        ],
+        weights: [0, 4, 9, 14]
     },
     {
         question: "How would you describe your professional network?",
@@ -98,8 +114,10 @@ const quizData = [
             "Significantly boosted by family connections",
             "Inherited a powerful network from family"
         ],
-        weights: [0, 2, 5, 7]
+        weights: [0, 3, 6, 10]
     },
+
+    // SECTION 5: Identity & Cultural Factors
     {
         question: "How often did you have to 'code-switch' or modify your behavior/speech for professional settings?",
         answers: [
@@ -108,17 +126,7 @@ const quizData = [
             "Occasionally",
             "Never thought about it"
         ],
-        weights: [0, 2, 5, 7]
-    },
-    {
-        question: "Did your neighborhood have well-funded schools, low pollution, and access to healthy food?",
-        answers: [
-            "No to all",
-            "Mixed",
-            "Mostly yes",
-            "Yes to everything"
-        ],
-        weights: [0, 2, 5, 7]
+        weights: [0, 1, 3, 5]
     },
     {
         question: "Has your name ever been a barrier? (callbacks, pronunciation, 'professionalism')",
@@ -128,7 +136,7 @@ const quizData = [
             "Minor",
             "Never an issue"
         ],
-        weights: [0, 2, 5, 7]
+        weights: [0, 2, 4, 6]
     },
     {
         question: "How often are you seen as an individual vs. representative of your entire race/ethnicity?",
@@ -138,7 +146,7 @@ const quizData = [
             "Sometimes",
             "I'm always seen as an individual"
         ],
-        weights: [0, 2, 5, 7]
+        weights: [0, 1, 3, 5]
     },
     {
         question: "In professional spaces, is your cultural background seen as 'sophisticated' or 'ethnic/exotic'?",
@@ -148,8 +156,10 @@ const quizData = [
             "Neutral",
             "Seen as cultured/sophisticated"
         ],
-        weights: [0, 2, 5, 7]
+        weights: [0, 1, 3, 5]
     },
+
+    // SECTION 6: Gender, Sexuality & Identity
     {
         question: "How much does your gender identity match legal documentation?",
         answers: [
@@ -158,7 +168,7 @@ const quizData = [
             "Mostly aligned",
             "Always matched, never questioned"
         ],
-        weights: [0, 2, 5, 7]
+        weights: [0, 1, 3, 5]
     },
     {
         question: "How comfortable are you discussing your personal life/partner at work?",
@@ -168,7 +178,7 @@ const quizData = [
             "Somewhat open",
             "Completely open, never a concern"
         ],
-        weights: [0, 2, 5, 7]
+        weights: [0, 1, 3, 5]
     },
     {
         question: "Has your sexual orientation affected your career opportunities or advancement?",
@@ -178,7 +188,7 @@ const quizData = [
             "Minor impact",
             "Never affected me / or gave me advantage"
         ],
-        weights: [0, 2, 5, 7]
+        weights: [0, 2, 4, 6]
     },
     {
         question: "Growing up, how was your sexual orientation/gender identity received by your family?",
@@ -188,7 +198,7 @@ const quizData = [
             "Accepted over time",
             "Fully supported / never questioned"
         ],
-        weights: [0, 2, 5, 7]
+        weights: [0, 1, 3, 5]
     },
     {
         question: "How often do you consider personal safety based on your gender/sexuality?",
@@ -198,7 +208,7 @@ const quizData = [
             "Occasional thought",
             "Rarely or never crosses my mind"
         ],
-        weights: [0, 2, 5, 7]
+        weights: [0, 1, 3, 5]
     },
     {
         question: "Has accessing healthcare (including reproductive/gender-affirming care) been difficult based on your gender/sexuality?",
@@ -208,7 +218,7 @@ const quizData = [
             "Some hurdles",
             "Straightforward, no barriers"
         ],
-        weights: [0, 2, 5, 7]
+        weights: [0, 1, 3, 5]
     },
     {
         question: "Do laws/policies where you live protect or target your gender identity/sexual orientation?",
@@ -218,16 +228,17 @@ const quizData = [
             "Some protections",
             "Fully protected, never questioned"
         ],
-        weights: [0, 2, 5, 7]
+        weights: [0, 2, 4, 6]
     }
 ];
 
-// State variables
 let currentQuestionIndex = 0;
 let score = 0;
 let selectedAnswer = null;
+let questionScores = []; // Track score for each question
+// Calculate max score dynamically based on question weights
+const maxScore = quizData.reduce((total, question) => total + Math.max(...question.weights), 0);
 
-// DOM elements
 const startSection = document.getElementById('quiz-start');
 const questionsSection = document.getElementById('quiz-questions');
 const resultsSection = document.getElementById('quiz-results');
@@ -238,8 +249,64 @@ const questionText = document.getElementById('question-text');
 const answerButtons = document.getElementById('answer-buttons');
 const questionCounter = document.getElementById('question-counter');
 const scoreDisplay = document.getElementById('score');
+const thermometerContainer = document.getElementById('thermostat-container');
+const thermometerFill = document.getElementById('thermostat-fill');
+const thermometerScore = document.getElementById('thermostat-score');
+const mobileBadge = document.getElementById('mobile-score-badge');
+const mobileScoreValue = document.getElementById('mobile-score-value');
 
-// Event listeners
+function updateThermometer() {
+    const percentage = Math.round((score / maxScore) * 100);
+    thermometerFill.style.height = percentage + '%';
+    thermometerScore.textContent = percentage + '%';
+    mobileScoreValue.textContent = percentage + '%';
+
+    // Update mobile badge color based on score (smooth gradient)
+    let badgeColor, textColor;
+    if (percentage <= 50) {
+        // Silver to Light Gold (0-50%)
+        const ratio = percentage / 50;
+        badgeColor = interpolateColor('#d1d5db', '#fde047', ratio);
+        textColor = interpolateColor('#e5e7eb', '#fde047', ratio);
+    } else if (percentage <= 75) {
+        // Light Gold to Rich Gold (50-75%)
+        const ratio = (percentage - 50) / 25;
+        badgeColor = interpolateColor('#fde047', '#f59e0b', ratio);
+        textColor = interpolateColor('#fde047', '#f59e0b', ratio);
+    } else {
+        // Rich Gold to Deep Gold (75-100%)
+        const ratio = (percentage - 75) / 25;
+        badgeColor = interpolateColor('#f59e0b', '#d4af37', ratio);
+        textColor = interpolateColor('#f59e0b', '#d4af37', ratio);
+    }
+
+    mobileBadge.style.borderColor = badgeColor;
+    mobileBadge.style.boxShadow = `0 10px 30px ${badgeColor}40`;
+    mobileScoreValue.style.color = textColor;
+}
+
+// Helper function to interpolate between two hex colors
+function interpolateColor(color1, color2, ratio) {
+    const hex = (x) => {
+        const h = x.toString(16);
+        return h.length === 1 ? '0' + h : h;
+    };
+
+    const r1 = parseInt(color1.substring(1, 3), 16);
+    const g1 = parseInt(color1.substring(3, 5), 16);
+    const b1 = parseInt(color1.substring(5, 7), 16);
+
+    const r2 = parseInt(color2.substring(1, 3), 16);
+    const g2 = parseInt(color2.substring(3, 5), 16);
+    const b2 = parseInt(color2.substring(5, 7), 16);
+
+    const r = Math.round(r1 + (r2 - r1) * ratio);
+    const g = Math.round(g1 + (g2 - g1) * ratio);
+    const b = Math.round(b1 + (b2 - b1) * ratio);
+
+    return '#' + hex(r) + hex(g) + hex(b);
+}
+
 startBtn.addEventListener('click', startQuiz);
 nextBtn.addEventListener('click', nextQuestion);
 restartBtn.addEventListener('click', restartQuiz);
@@ -248,10 +315,14 @@ function startQuiz() {
     currentQuestionIndex = 0;
     score = 0;
     selectedAnswer = null;
+    questionScores = []; // Reset question scores
 
     startSection.classList.remove('active');
     questionsSection.classList.add('active');
+    thermometerContainer.classList.add('active');
+    mobileBadge.classList.add('active');
 
+    updateThermometer();
     showQuestion();
 }
 
@@ -279,16 +350,22 @@ function selectAnswer(answerIndex, buttonElement) {
     const currentQuestion = quizData[currentQuestionIndex];
     const allButtons = answerButtons.querySelectorAll('.answer-btn');
 
-    // Remove previous selection
     allButtons.forEach(btn => btn.classList.remove('selected'));
 
-    selectedAnswer = answerIndex;
+    // If this question was already answered, subtract the old score
+    if (questionScores[currentQuestionIndex] !== undefined) {
+        score -= questionScores[currentQuestionIndex];
+    }
 
-    // Highlight selected answer
+    // Store the new score for this question
+    questionScores[currentQuestionIndex] = currentQuestion.weights[answerIndex];
+
+    // Add the new score
+    score += questionScores[currentQuestionIndex];
+    selectedAnswer = answerIndex;
     buttonElement.classList.add('selected');
 
-    // Add weight to score
-    score += currentQuestion.weights[answerIndex];
+    updateThermometer();
 
     nextBtn.disabled = false;
 }
@@ -306,8 +383,9 @@ function nextQuestion() {
 function showResults() {
     questionsSection.classList.remove('active');
     resultsSection.classList.add('active');
+    thermometerContainer.classList.remove('active');
+    mobileBadge.classList.remove('active');
 
-    const maxScore = 154; // 22 questions * 7 max points each
     const percentage = Math.round((score / maxScore) * 100);
 
     let ranking = '';
@@ -331,17 +409,21 @@ function showResults() {
     }
 
     scoreDisplay.innerHTML = `
-        <div style="font-size: 2.5rem; font-weight: bold; color: #667eea; margin-bottom: 15px;">${percentage}%</div>
-        <div style="font-size: 1.8rem; font-weight: bold; color: #333; margin-bottom: 10px;">${ranking}</div>
-        <div style="font-size: 1rem; color: #666; line-height: 1.5;">${message}</div>
+        <div class="score-percentage">${percentage}%</div>
+        <div class="score-ranking">${ranking}</div>
+        <div class="score-message">${message}</div>
     `;
 }
 
 function restartQuiz() {
     resultsSection.classList.remove('active');
     startSection.classList.add('active');
+    thermometerContainer.classList.remove('active');
+    mobileBadge.classList.remove('active');
 
     currentQuestionIndex = 0;
     score = 0;
     selectedAnswer = null;
+    questionScores = []; // Reset question scores
+    updateThermometer();
 }
