@@ -1,7 +1,5 @@
 # Nepo Baby Calculator
 
-[![Deploy to GitHub Pages](https://github.com/<your-username>/nepometer/actions/workflows/deploy.yml/badge.svg)](https://github.com/<your-username>/nepometer/actions/workflows/deploy.yml)
-
 An interactive web quiz that helps users assess how much privilege and family connections have shaped their journey in life and career.
 
 https://waleedskhan2025-dotcom.github.io/nepometer/
@@ -16,14 +14,6 @@ The Nepo Baby Calculator is a fun, thought-provoking quiz that evaluates various
 - Support for housing and living expenses
 
 Based on the responses, users receive a score and ranking from "Self-Made" to "Supreme Nepo Baby."
-
-## Features
-
-- **Interactive Quiz Interface**: Clean, modern UI with smooth transitions
-- **10 Thought-Provoking Questions**: Covering education, career, finances, and opportunities
-- **Weighted Scoring System**: Each answer contributes differently to the final score
-- **Personalized Results**: Rankings with custom messages based on your score
-- **Responsive Design**: Works seamlessly on desktop and mobile devices
 
 ## Getting Started
 
@@ -58,7 +48,7 @@ Or simply double-click the `index.html` file.
 1. Click "Take the Test" to begin
 2. Read each question carefully and select the answer that best applies to you
 3. Click "Next Question" to proceed
-4. After completing all 15 questions, view your results
+4. After completing all 22 questions, view your results
 5. Click "Retake Test" to start over
 
 ## Score Rankings
