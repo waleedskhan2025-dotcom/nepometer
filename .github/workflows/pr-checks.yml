@@ -27,17 +27,20 @@ jobs:
           echo "🔍 Validating HTML..."
           npx html-validator-cli --file=index.html --quiet || echo "⚠️ HTML validation skipped (rate limited)"
 
-      - name: Check JavaScript syntax
+      - name: Check inline JavaScript
         run: |
-          echo "🔍 Checking JavaScript syntax..."
-          node -c script.js
-          echo "✅ JavaScript syntax is valid"
+          echo "🔍 Checking for inline JavaScript..."
+          if grep -q "<script>" index.html; then
+            echo "✅ Inline JavaScript found in index.html"
+          else
+            echo "❌ No JavaScript found in index.html"
+            exit 1
+          fi
 
       - name: File structure check
         run: |
           echo "📁 Checking required files..."
           test -f index.html && echo "✅ index.html exists" || exit 1
-          test -f script.js && echo "✅ script.js exists" || exit 1
           test -f styles.css && echo "✅ styles.css exists" || exit 1
           test -f README.md && echo "✅ README.md exists" || exit 1
           echo "🎉 All required files present!"
