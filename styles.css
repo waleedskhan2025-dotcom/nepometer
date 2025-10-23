@@ -503,12 +503,6 @@ h2 {
     padding: 0 !important;
 }
 
-@media (max-width: 900px) {
-    .mobile-score-badge.active {
-        display: flex;
-    }
-}
-
 .mobile-score-value {
     font-size: 1.5rem;
     font-weight: 800;
