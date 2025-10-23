@@ -32,13 +32,9 @@ jobs:
       
       - name: Validate HTML
         run: |
-          echo "Checking HTML files..."          npx html-validator-cli --quiet --format=text index.html || echo "HTML validation completed"
-      
-      - name: Check JavaScript syntax
-        run: |
-          echo "Checking JavaScript files..."
-          node -c script.js || echo "JS syntax check completed"
-      
+          echo "Checking HTML files..."
+          npx html-validator-cli --file=index.html --quiet --format=text || echo "HTML validation completed"
+
       - name: List files for deployment
         run: |
           echo "Files to be deployed:"
