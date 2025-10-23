@@ -3,12 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nepo Baby Calculator</title>
+    <title>Nepo Baby Calculator - Test Your Privilege Score</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Take the Nepo Baby Calculator quiz to assess how much privilege and family connections have shaped your journey. Get your score from Self-Made to Supreme Nepo Baby across 22 comprehensive questions.">
+    <meta name="keywords" content="nepo baby, privilege calculator, privilege quiz, nepotism test, family connections, career privilege">
+    <meta name="author" content="Nepo Baby Calculator">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://waleedskhan2025-dotcom.github.io/nepometer/">
+    <meta property="og:title" content="Nepo Baby Calculator - Test Your Privilege Score">
+    <meta property="og:description" content="How much of a nepo baby are you? Take this interactive quiz to find out how privilege and family connections shaped your journey.">
+    <meta property="og:site_name" content="Nepo Baby Calculator">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://waleedskhan2025-dotcom.github.io/nepometer/">
+    <meta name="twitter:title" content="Nepo Baby Calculator - Test Your Privilege Score">
+    <meta name="twitter:description" content="How much of a nepo baby are you? Take this interactive quiz to find out how privilege and family connections shaped your journey.">
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#1a1a2e">
+
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Mobile Score Badge -->
-    <div class="mobile-score-badge" id="mobile-score-badge">
+    <div class="mobile-score-badge" id="mobile-score-badge" role="status" aria-live="polite" aria-label="Current quiz score">
         <div class="mobile-score-value" id="mobile-score-value">0%</div>
         <div class="mobile-score-label">Score</div>
     </div>
@@ -27,39 +49,39 @@
 
     <div class="container">
         <div class="quiz-wrapper">
-            <div id="quiz-container">
+            <div id="quiz-container" role="main">
             <h1>Nepo Baby Calculator</h1>
 
-            <div id="quiz-start" class="quiz-section active">
-                <h2>How much of a Nepo Baby are you?</h2>
+            <div id="quiz-start" class="quiz-section active" role="region" aria-labelledby="start-heading">
+                <h2 id="start-heading">How much of a Nepo Baby are you?</h2>
                 <p>Answer honestly to find out how much privilege and family connections have shaped your journey.</p>
-                <button id="start-btn" class="btn">Take the Test</button>
+                <button id="start-btn" class="btn" aria-label="Start the Nepo Baby Calculator quiz">Take the Test</button>
             </div>
 
-            <div id="quiz-questions" class="quiz-section">
+            <div id="quiz-questions" class="quiz-section" role="region" aria-labelledby="question-text">
                 <div id="question-container">
                     <h2 id="question-text"></h2>
-                    <div id="answer-buttons" class="answer-grid"></div>
+                    <div id="answer-buttons" class="answer-grid" role="radiogroup" aria-label="Answer options"></div>
                 </div>
 
                 <div class="quiz-controls">
-                    <div id="question-counter"></div>
-                    <button id="next-btn" class="btn">Next Question</button>
+                    <div id="question-counter" role="status" aria-live="polite"></div>
+                    <button id="next-btn" class="btn" aria-label="Proceed to next question">Next Question</button>
                 </div>
             </div>
 
-            <div id="quiz-results" class="quiz-section">
-                <h2>Your Results</h2>
-                <div id="score-container">
+            <div id="quiz-results" class="quiz-section" role="region" aria-labelledby="results-heading">
+                <h2 id="results-heading">Your Results</h2>
+                <div id="score-container" role="status" aria-live="polite">
                     <div id="score"></div>
                 </div>
-                <button id="restart-btn" class="btn">Retake Test</button>
+                <button id="restart-btn" class="btn" aria-label="Restart the quiz from the beginning">Retake Test</button>
             </div>
         </div>
         
         <!-- Thermostat Meter -->
-        <div class="thermostat-container" id="thermostat-container">
-            <div class="thermostat">
+        <div class="thermostat-container" id="thermostat-container" role="status" aria-label="Score thermometer">
+            <div class="thermostat" aria-hidden="true">
                 <div class="thermostat-markers">
                     <span class="marker">100%</span>
                     <span class="marker">75%</span>
@@ -73,7 +95,7 @@
                 <div class="thermostat-bulb"></div>
             </div>
             <div class="thermostat-label">
-                <div class="thermostat-score" id="thermostat-score">0%</div>
+                <div class="thermostat-score" id="thermostat-score" aria-live="polite">0%</div>
                 <div>Nepo Score</div>
             </div>
         </div>
@@ -421,6 +443,9 @@
                 const button = document.createElement('button');
                 button.textContent = answer;
                 button.classList.add('answer-btn');
+                button.setAttribute('role', 'radio');
+                button.setAttribute('aria-checked', 'false');
+                button.setAttribute('aria-label', answer);
                 button.addEventListener('click', () => selectAnswer(index, button));
                 answerButtons.appendChild(button);
             });
@@ -433,7 +458,10 @@
             const currentQuestion = quizData[currentQuestionIndex];
             const allButtons = answerButtons.querySelectorAll('.answer-btn');
 
-            allButtons.forEach(btn => btn.classList.remove('selected'));
+            allButtons.forEach(btn => {
+                btn.classList.remove('selected');
+                btn.setAttribute('aria-checked', 'false');
+            });
 
             // If this question was already answered, subtract the old score
             if (questionScores[currentQuestionIndex] !== undefined) {
@@ -447,6 +475,7 @@
             score += questionScores[currentQuestionIndex];
             selectedAnswer = answerIndex;
             buttonElement.classList.add('selected');
+            buttonElement.setAttribute('aria-checked', 'true');
 
             updateThermometer();
 

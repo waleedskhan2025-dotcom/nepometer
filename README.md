@@ -8,10 +8,19 @@ https://waleedskhan2025-dotcom.github.io/nepometer/
 
 The Nepo Baby Calculator is a fun, thought-provoking quiz that evaluates various aspects of privilege including:
 - Educational background and opportunities
-- Family financial situation
+- Family financial situation and neighborhood quality
 - Career connections and networking
 - Access to unpaid internships and gap years
 - Support for housing and living expenses
+- Identity and cultural factors (code-switching, representation)
+- Gender, sexuality, and identity considerations
+
+The quiz features:
+- **Dynamic scoring system** that automatically scales to 100%
+- **Visual thermometer** (desktop) showing real-time score progress
+- **Mobile score badge** with gradient color transitions
+- **Responsive design** optimized for all screen sizes
+- **22 comprehensive questions** across 6 thematic sections
 
 Based on the responses, users receive a score and ranking from "Self-Made" to "Supreme Nepo Baby."
 
@@ -47,9 +56,10 @@ Or simply double-click the `index.html` file.
 
 1. Click "Take the Test" to begin
 2. Read each question carefully and select the answer that best applies to you
-3. Click "Next Question" to proceed
-4. After completing all 22 questions, view your results
-5. Click "Retake Test" to start over
+3. Watch your score update in real-time on the thermometer (desktop) or badge (mobile)
+4. Click "Next Question" to proceed through all questions
+5. View your personalized results with ranking and message
+6. Click "Retake Test" to start over
 
 ## Score Rankings
 
@@ -63,17 +73,29 @@ Or simply double-click the `index.html` file.
 
 ```
 nepometer/
-├── index.html      # Main HTML structure
-├── styles.css      # Styling and layout
-├── script.js       # Quiz logic and interactivity
-└── README.md       # Project documentation
+├── index.html           # Main HTML with inline JavaScript (quiz logic)
+├── styles.css           # All styling, animations, and responsive design
+├── README.md            # Project documentation
+├── QUIZ_STRUCTURE.md    # Quiz organization and question breakdown
+├── DEPLOYMENT.md        # Deployment instructions
+└── .github/workflows/   # CI/CD automation
+    ├── deploy.yml       # Auto-deploy to GitHub Pages
+    └── pr-checks.yml    # Pull request validation
 ```
 
 ## Technologies Used
 
-- HTML5
-- CSS3
-- Vanilla JavaScript (ES6+)
+- **HTML5** - Semantic structure with inline JavaScript
+- **CSS3** - Advanced animations, gradients, glassmorphism, responsive design
+- **Vanilla JavaScript (ES6+)** - Dynamic quiz logic, color interpolation, real-time scoring
+
+## Architecture
+
+This project uses an **inline JavaScript architecture** where all quiz logic is embedded directly in `index.html`. This approach:
+- ✅ Reduces HTTP requests (faster initial load)
+- ✅ Keeps everything in one file for simplicity
+- ✅ Perfect for single-page applications
+- ✅ No build tools or bundlers required
 
 ## Deployment
 
