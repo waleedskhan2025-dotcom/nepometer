@@ -28,40 +28,12 @@ Based on the responses, users receive a score and ranking from "Self-Made" to "S
 
 ## Getting Started
 
+The quiz can be launched via GitHub Pages at the following URL:
+https://waleedskhan2025-dotcom.github.io/nepometer/
+
 ### Prerequisites
 
 No dependencies or build tools required! This is a pure HTML/CSS/JavaScript project.
-
-### Installation
-
-1. Clone the repository:
-```bash
-git clone <repository-url>
-cd nepometer
-```
-
-2. Open `index.html` in your web browser:
-```bash
-# On Windows
-start index.html
-
-# On macOS
-open index.html
-
-# On Linux
-xdg-open index.html
-```
-
-Or simply double-click the `index.html` file.
-
-## Usage
-
-1. Click "Take the Test" to begin
-2. Read each question carefully and select the answer that best applies to you
-3. Watch your score update in real-time on the thermometer (desktop) or badge (mobile)
-4. Click "Next Question" to proceed through all questions
-5. View your personalized results with ranking and message
-6. Click "Retake Test" to start over
 
 ## Score Rankings
 
@@ -71,7 +43,7 @@ Or simply double-click the `index.html` file.
 - **20-39%**: Mostly Self-Made - Worked for most achievements
 - **0-19%**: Self-Made - Built everything from scratch
 
-## The "Exodia Effect" 🔥
+## Exodia Questions
 
 The quiz includes **6 nuclear "Exodia" questions** that carry extreme weight in the scoring system. These questions identify the most extreme privilege indicators:
 
@@ -90,8 +62,6 @@ The Exodia Effect implements a **tier floor guarantee**:
 - **2+ nuclear answers** = Minimum 80% score (Supreme Nepo Baby tier floor)
 
 This means if you have a 7-figure trust fund, you **cannot** score below Certified Nepo Baby, regardless of other answers. The system recognizes that certain privilege indicators are so extreme they categorically define your nepotism level.
-
-When the tier floor is activated, your results will display: **"🔥 EXODIA EFFECT ACTIVATED"** with an explanation of the guarantee.
 
 ## Project Structure
 
@@ -113,25 +83,9 @@ nepometer/
 - **CSS3** - Advanced animations, gradients, glassmorphism, responsive design
 - **Vanilla JavaScript (ES6+)** - Dynamic quiz logic, color interpolation, real-time scoring
 
-## Architecture
-
-This project uses an **inline JavaScript architecture** where all quiz logic is embedded directly in `index.html`. This approach:
-- ✅ Reduces HTTP requests (faster initial load)
-- ✅ Keeps everything in one file for simplicity
-- ✅ Perfect for single-page applications
-- ✅ No build tools or bundlers required
-
 ## Deployment
 
 This project is configured with GitHub Actions for automatic deployment to GitHub Pages.
-
-### Setting Up GitHub Pages
-
-1. Push your code to GitHub
-2. Go to your repository Settings → Pages
-3. Under "Build and deployment", select:
-   - **Source**: GitHub Actions
-4. Push to the `main` branch, and your site will automatically deploy!
 
 ### CI/CD Pipeline
 
@@ -149,12 +103,6 @@ The project includes two automated workflows:
 - ✅ Checks file structure
 - ✅ Warns about console.log statements
 
-### View Your Site
-
-After deployment, your site will be available at:
-```
-https://<your-username>.github.io/nepometer/
-```
 
 ## Contributing
 
