@@ -423,11 +423,40 @@
         const mobileScoreValue = document.getElementById('mobile-score-value');
 
         function updateThermometer() {
-            const percentage = Math.round((score / maxScore) * 100);
+            let percentage = Math.round((score / maxScore) * 100);
+
+            // Apply exodia tier floor logic
+            const exodiaQuestionIndices = [22, 23, 24, 25, 26, 27];
+            let exodiaCount = 0;
+
+            exodiaQuestionIndices.forEach(questionIndex => {
+                // Check if this question was answered with the nuclear option (index 3)
+                if (questionScores[questionIndex] !== undefined) {
+                    const question = quizData[questionIndex];
+                    const maxWeight = Math.max(...question.weights);
+                    // If the score for this question equals the max weight, they picked the nuclear option
+                    if (questionScores[questionIndex] === maxWeight) {
+                        exodiaCount++;
+                    }
+                }
+            });
+
+            // Apply tier floor based on exodia count
+            if (exodiaCount >= 2) {
+                // 2+ nuclear answers = minimum 80% (Supreme Nepo Baby)
+                percentage = Math.max(percentage, 80);
+            } else if (exodiaCount >= 1) {
+                // 1 nuclear answer = minimum 60% (Certified Nepo Baby)
+                percentage = Math.max(percentage, 60);
+            }
+
+            // Cap at 100%
+            percentage = Math.min(percentage, 100);
+
             thermometerFill.style.height = percentage + '%';
             thermometerScore.textContent = percentage + '%';
             mobileScoreValue.textContent = percentage + '%';
-            
+
             // Update mobile badge color based on score (smooth gradient)
             let badgeColor, textColor;
             if (percentage <= 50) {
@@ -446,7 +475,7 @@
                 badgeColor = interpolateColor('#f59e0b', '#d4af37', ratio);
                 textColor = interpolateColor('#f59e0b', '#d4af37', ratio);
             }
-            
+
             mobileBadge.style.borderColor = badgeColor;
             mobileBadge.style.boxShadow = `0 10px 30px ${badgeColor}40`;
             mobileScoreValue.style.color = textColor;
@@ -601,15 +630,9 @@
             if (percentage >= 80) {
                 ranking = 'Supreme Nepo Baby';
                 message = 'Born with a platinum spoon. Your family connections are basically a cheat code for life.';
-                if (tierFloorApplied && exodiaCount >= 2) {
-                    message += ' <strong>🔥 EXODIA EFFECT ACTIVATED:</strong> Your extreme privilege indicators guarantee Supreme status.';
-                }
             } else if (percentage >= 60) {
                 ranking = 'Certified Nepo Baby';
                 message = 'You had significant advantages. The doors were already unlocked for you.';
-                if (tierFloorApplied && exodiaCount >= 1) {
-                    message += ' <strong>🔥 EXODIA EFFECT ACTIVATED:</strong> Your extreme privilege indicators guarantee Certified Nepo Baby minimum.';
-                }
             } else if (percentage >= 40) {
                 ranking = 'Nepo-Adjacent';
                 message = 'You had some privileges and connections that gave you a boost.';
