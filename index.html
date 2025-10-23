@@ -6,8 +6,8 @@
     <title>Nepo Baby Calculator - Test Your Privilege Score</title>
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Take the Nepo Baby Calculator quiz to assess how much privilege and family connections have shaped your journey. Get your score from Self-Made to Supreme Nepo Baby across 22 comprehensive questions.">
-    <meta name="keywords" content="nepo baby, privilege calculator, privilege quiz, nepotism test, family connections, career privilege">
+    <meta name="description" content="Take the Nepo Baby Calculator quiz to assess how much privilege and family connections have shaped your journey. Get your score from Self-Made to Supreme Nepo Baby across 28 comprehensive questions.">
+    <meta name="keywords" content="nepo baby, privilege calculator, privilege quiz, nepotism test, family connections, career privilege, trust fund, family wealth">
     <meta name="author" content="Nepo Baby Calculator">
 
     <!-- Open Graph / Facebook -->
@@ -334,6 +334,68 @@
                     "Fully protected, never questioned"
                 ],
                 weights: [0, 2, 4, 6]
+            },
+
+            // SECTION 7: Ultimate Privilege Indicators (Exodia Questions)
+            {
+                question: "Do you have access to a trust fund, inheritance, or family wealth?",
+                answers: [
+                    "No family wealth available",
+                    "Small inheritance or modest trust fund (under $100k)",
+                    "Significant trust fund or inheritance ($100k-$999k)",
+                    "7-figure+ trust fund or substantial family wealth"
+                ],
+                weights: [0, 10, 25, 60]
+            },
+            {
+                question: "Does your family own or control a business?",
+                answers: [
+                    "No family business",
+                    "Small local business (< 10 employees)",
+                    "Established regional business or franchise",
+                    "Major corporation, public company, or industry-leading business"
+                ],
+                weights: [0, 10, 25, 65]
+            },
+            {
+                question: "Is anyone in your immediate family a public figure?",
+                answers: [
+                    "No one of public note",
+                    "Local community leader or minor public figure",
+                    "Regional celebrity, politician, or well-known professional",
+                    "National/international celebrity, major politician, or household name"
+                ],
+                weights: [0, 10, 25, 70]
+            },
+            {
+                question: "Have you ever been offered a board seat, executive role, or major business opportunity primarily due to family connections?",
+                answers: [
+                    "Never offered such opportunities",
+                    "Been introduced to opportunities through family",
+                    "Secured mid-level positions through family connections",
+                    "Given C-suite, board seats, or ownership stakes without traditional qualifications"
+                ],
+                weights: [0, 15, 30, 65]
+            },
+            {
+                question: "How many properties does your family own?",
+                answers: [
+                    "Rent or own one primary residence with mortgage",
+                    "Own primary residence outright",
+                    "Own 2-3 properties (vacation home, investment property)",
+                    "Own 4+ properties or significant real estate portfolio"
+                ],
+                weights: [0, 10, 20, 55]
+            },
+            {
+                question: "If you lost your job or business failed, what would happen?",
+                answers: [
+                    "Would face serious financial hardship",
+                    "Could manage for a few months with savings",
+                    "Family could help temporarily with living expenses",
+                    "Family could indefinitely support my lifestyle without concern"
+                ],
+                weights: [0, 10, 25, 60]
             }
         ];
 
@@ -361,11 +423,40 @@
         const mobileScoreValue = document.getElementById('mobile-score-value');
 
         function updateThermometer() {
-            const percentage = Math.round((score / maxScore) * 100);
+            let percentage = Math.round((score / maxScore) * 100);
+
+            // Apply exodia tier floor logic
+            const exodiaQuestionIndices = [22, 23, 24, 25, 26, 27];
+            let exodiaCount = 0;
+
+            exodiaQuestionIndices.forEach(questionIndex => {
+                // Check if this question was answered with the nuclear option (index 3)
+                if (questionScores[questionIndex] !== undefined) {
+                    const question = quizData[questionIndex];
+                    const maxWeight = Math.max(...question.weights);
+                    // If the score for this question equals the max weight, they picked the nuclear option
+                    if (questionScores[questionIndex] === maxWeight) {
+                        exodiaCount++;
+                    }
+                }
+            });
+
+            // Apply tier floor based on exodia count
+            if (exodiaCount >= 2) {
+                // 2+ nuclear answers = minimum 80% (Supreme Nepo Baby)
+                percentage = Math.max(percentage, 80);
+            } else if (exodiaCount >= 1) {
+                // 1 nuclear answer = minimum 60% (Certified Nepo Baby)
+                percentage = Math.max(percentage, 60);
+            }
+
+            // Cap at 100%
+            percentage = Math.min(percentage, 100);
+
             thermometerFill.style.height = percentage + '%';
             thermometerScore.textContent = percentage + '%';
             mobileScoreValue.textContent = percentage + '%';
-            
+
             // Update mobile badge color based on score (smooth gradient)
             let badgeColor, textColor;
             if (percentage <= 50) {
@@ -384,7 +475,7 @@
                 badgeColor = interpolateColor('#f59e0b', '#d4af37', ratio);
                 textColor = interpolateColor('#f59e0b', '#d4af37', ratio);
             }
-            
+
             mobileBadge.style.borderColor = badgeColor;
             mobileBadge.style.boxShadow = `0 10px 30px ${badgeColor}40`;
             mobileScoreValue.style.color = textColor;
@@ -498,7 +589,40 @@
             thermometerContainer.classList.remove('active');
             mobileBadge.classList.remove('active');
 
-            const percentage = Math.round((score / maxScore) * 100);
+            let percentage = Math.round((score / maxScore) * 100);
+
+            // EXODIA TIER FLOOR LOGIC
+            // Check for nuclear "exodia" answers (questions 22-27, answerIndex 3)
+            const exodiaQuestionIndices = [22, 23, 24, 25, 26, 27];
+            let exodiaCount = 0;
+
+            exodiaQuestionIndices.forEach(questionIndex => {
+                // Check if this question was answered with the nuclear option (index 3)
+                if (questionScores[questionIndex] !== undefined) {
+                    const question = quizData[questionIndex];
+                    const maxWeight = Math.max(...question.weights);
+                    // If the score for this question equals the max weight, they picked the nuclear option
+                    if (questionScores[questionIndex] === maxWeight) {
+                        exodiaCount++;
+                    }
+                }
+            });
+
+            // Apply tier floor based on exodia count
+            let tierFloorApplied = false;
+            if (exodiaCount >= 2) {
+                // 2+ nuclear answers = minimum 80% (Supreme Nepo Baby)
+                if (percentage < 80) {
+                    percentage = 80;
+                    tierFloorApplied = true;
+                }
+            } else if (exodiaCount >= 1) {
+                // 1 nuclear answer = minimum 60% (Certified Nepo Baby)
+                if (percentage < 60) {
+                    percentage = 60;
+                    tierFloorApplied = true;
+                }
+            }
 
             let ranking = '';
             let message = '';

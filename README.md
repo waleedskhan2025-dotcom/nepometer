@@ -14,13 +14,15 @@ The Nepo Baby Calculator is a fun, thought-provoking quiz that evaluates various
 - Support for housing and living expenses
 - Identity and cultural factors (code-switching, representation)
 - Gender, sexuality, and identity considerations
+- **Ultimate Privilege Indicators** (trust funds, family businesses, celebrity connections, board seats, property portfolios, and financial safety nets)
 
 The quiz features:
 - **Dynamic scoring system** that automatically scales to 100%
+- **"Exodia Effect"** tier floor system - extreme privilege indicators guarantee minimum tier placement
 - **Visual thermometer** (desktop) showing real-time score progress
 - **Mobile score badge** with gradient color transitions
 - **Responsive design** optimized for all screen sizes
-- **22 comprehensive questions** across 6 thematic sections
+- **28 comprehensive questions** across 7 thematic sections
 
 Based on the responses, users receive a score and ranking from "Self-Made" to "Supreme Nepo Baby."
 
@@ -68,6 +70,28 @@ Or simply double-click the `index.html` file.
 - **40-59%**: Nepo-Adjacent - Some privileges and connections
 - **20-39%**: Mostly Self-Made - Worked for most achievements
 - **0-19%**: Self-Made - Built everything from scratch
+
+## The "Exodia Effect" 🔥
+
+The quiz includes **6 nuclear "Exodia" questions** that carry extreme weight in the scoring system. These questions identify the most extreme privilege indicators:
+
+1. **Trust Fund / Inheritance** (7-figure+ family wealth)
+2. **Family Business Empire** (major corporations or industry leaders)
+3. **Celebrity / Political Family** (national/international public figures)
+4. **Executive Positions Gifted** (C-suite or board seats through family)
+5. **Property Portfolio** (4+ properties or significant real estate holdings)
+6. **Financial Safety Net** (indefinite family support with no concerns)
+
+### Tier Floor System
+
+The Exodia Effect implements a **tier floor guarantee**:
+
+- **1 nuclear answer** = Minimum 60% score (Certified Nepo Baby tier floor)
+- **2+ nuclear answers** = Minimum 80% score (Supreme Nepo Baby tier floor)
+
+This means if you have a 7-figure trust fund, you **cannot** score below Certified Nepo Baby, regardless of other answers. The system recognizes that certain privilege indicators are so extreme they categorically define your nepotism level.
+
+When the tier floor is activated, your results will display: **"🔥 EXODIA EFFECT ACTIVATED"** with an explanation of the guarantee.
 
 ## Project Structure
 
