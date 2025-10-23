@@ -221,8 +221,104 @@
                 ],
                 weights: [0, 3, 6, 10]
             },
-            
-            // SECTION 5: Identity & Cultural Factors
+
+            // SECTION 5: Health & Disability
+            {
+                question: "Has disability, chronic illness, or mental health condition affected your education or career?",
+                answers: [
+                    "Significant barriers, major impact on opportunities",
+                    "Moderate challenges, some accommodations needed",
+                    "Minor impact, manageable with occasional support",
+                    "No health-related barriers to education/career"
+                ],
+                weights: [0, 4, 8, 12]
+            },
+            {
+                question: "How easy has it been to access healthcare and health insurance?",
+                answers: [
+                    "Very difficult, often went without needed care",
+                    "Challenging, significant out-of-pocket costs or gaps in coverage",
+                    "Generally accessible with some effort and cost",
+                    "Easy access, comprehensive coverage through family/employer"
+                ],
+                weights: [0, 3, 6, 10]
+            },
+            {
+                question: "Have you had access to mental health care (therapy, counseling, medication)?",
+                answers: [
+                    "No access or extremely difficult to obtain",
+                    "Limited access, affordability is a barrier",
+                    "Accessible but with some challenges",
+                    "Easy access, fully covered, no stigma"
+                ],
+                weights: [0, 3, 6, 10]
+            },
+            {
+                question: "Have you needed workplace or educational accommodations for health/disability?",
+                answers: [
+                    "Needed significant accommodations, often denied or stigmatized",
+                    "Needed some accommodations, had to advocate hard for them",
+                    "Needed minor accommodations, generally provided",
+                    "Never needed accommodations"
+                ],
+                weights: [0, 4, 8, 12]
+            },
+
+            // SECTION 6: Immigration & Citizenship
+            {
+                question: "What is your citizenship/immigration status in the country where you work/study?",
+                answers: [
+                    "Undocumented or precarious status, constant concern about deportation",
+                    "Temporary visa/permit, status depends on employment or renewal",
+                    "Permanent resident/Green card holder",
+                    "Citizen from birth or naturalized, never questioned"
+                ],
+                weights: [0, 4, 8, 12]
+            },
+            {
+                question: "Is your native language the dominant language where you live/work?",
+                answers: [
+                    "Speak a different language, face barriers in professional settings",
+                    "Bilingual, but accent or language sometimes an issue",
+                    "Mostly fluent, minor accent or language challenges",
+                    "Native speaker of dominant language, never a barrier"
+                ],
+                weights: [0, 4, 8, 12]
+            },
+            {
+                question: "Has your immigration status or family's immigration history affected your opportunities?",
+                answers: [
+                    "Major barriers to education, employment, or advancement",
+                    "Some restrictions on jobs, travel, or benefits",
+                    "Minor impact, mostly resolved",
+                    "No immigration-related barriers / Multi-generational citizen"
+                ],
+                weights: [0, 4, 8, 12]
+            },
+
+            // SECTION 7: Caregiving & Justice
+            {
+                question: "Have you had major caregiver responsibilities (children, parents, siblings) that affected your career?",
+                answers: [
+                    "Significant caregiving burden from young age, major career impact",
+                    "Substantial responsibilities, affected education or advancement",
+                    "Some caregiving, manageable with support",
+                    "No major caregiving responsibilities / had help from family/paid care"
+                ],
+                weights: [0, 4, 8, 12]
+            },
+            {
+                question: "Has interaction with the criminal justice system affected you or your immediate family?",
+                answers: [
+                    "Incarceration (self or family), major ongoing impact on opportunities",
+                    "Arrests, legal issues, or close surveillance, some career barriers",
+                    "Minor legal encounters, minimal lasting impact",
+                    "No contact with criminal justice system beyond basic interactions"
+                ],
+                weights: [0, 4, 8, 12]
+            },
+
+            // SECTION 8: Identity & Cultural Factors
             {
                 question: "How often did you have to 'code-switch' or modify your behavior/speech for professional settings?",
                 answers: [
@@ -263,8 +359,8 @@
                 ],
                 weights: [0, 3, 6, 10]
             },
-            
-            // SECTION 6: Gender, Sexuality & Identity
+
+            // SECTION 9: Gender, Sexuality & Identity
             {
                 question: "How much does your gender identity match legal documentation?",
                 answers: [
@@ -336,7 +432,7 @@
                 weights: [0, 4, 8, 12]
             },
 
-            // SECTION 7: Ultimate Privilege Indicators (Exodia Questions)
+            // SECTION 10: Ultimate Privilege Indicators (Exodia Questions)
             {
                 question: "Do you have access to a trust fund, inheritance, or family wealth?",
                 answers: [
@@ -406,7 +502,7 @@
         // Calculate max score dynamically based on question weights
         const maxScore = quizData.reduce((total, question) => total + Math.max(...question.weights), 0);
         // TARGET_SCORE for percentage calculation - allows reaching 100% without maxing all questions
-        const TARGET_SCORE = 320;
+        const TARGET_SCORE = 400;
 
         const startSection = document.getElementById('quiz-start');
         const questionsSection = document.getElementById('quiz-questions');
@@ -429,7 +525,7 @@
             let percentage = Math.round((score / TARGET_SCORE) * 100);
 
             // Apply exodia tier floor logic
-            const exodiaQuestionIndices = [22, 23, 24, 25, 26, 27];
+            const exodiaQuestionIndices = [31, 32, 33, 34, 35, 36];
             let exodiaCount = 0;
 
             exodiaQuestionIndices.forEach(questionIndex => {
@@ -597,8 +693,8 @@
             percentage = Math.min(percentage, 100);
 
             // EXODIA TIER FLOOR LOGIC
-            // Check for nuclear "exodia" answers (questions 22-27, answerIndex 3)
-            const exodiaQuestionIndices = [22, 23, 24, 25, 26, 27];
+            // Check for nuclear "exodia" answers (questions 32-37, answerIndex 3)
+            const exodiaQuestionIndices = [31, 32, 33, 34, 35, 36];
             let exodiaCount = 0;
 
             exodiaQuestionIndices.forEach(questionIndex => {
